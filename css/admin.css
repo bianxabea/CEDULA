@@ -1,0 +1,99 @@
+/**
+ * Business Performance: Admin Theme
+ * A professional, teal-accented theme for high-efficiency store management.
+ */
+
+:root {
+    --adm-bg: #FAFAF9;         /* Zinc 50 */
+    --adm-card: #FFFFFF;       /* Pure White */
+    --adm-border: #E4E4E7;     /* Zinc 200 */
+    --adm-text: #18181B;       /* Zinc 900 */
+    --adm-text-muted: #71717A; /* Zinc 500 */
+    --adm-accent: #0D9488;     /* Teal 600 */
+    --adm-accent-light: #F0FDFA;/* Teal 50 */
+    --adm-success: #16A34A;    /* Green 600 */
+    --adm-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Base Overrides */
+body.admin-theme-v2 {
+    background-color: var(--adm-bg);
+    color: var(--adm-text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.admin-theme-v2 .dashboard-main {
+    background-color: #F4F4F5; /* Zinc 100 Canvas */
+    padding: 4rem;
+}
+
+/* Admin Bento Items */
+.admin-theme-v2 .bento-item {
+    background: var(--adm-card);
+    border: 1px solid var(--adm-border);
+}
+
+.admin-theme-v2 .island-header {
+    background: var(--adm-card);
+    border-top: 4px solid var(--adm-accent);
+}
+.admin-theme-v2 .island-header::before { display: none; }
+
+
+/* Sidebar Refinement */
+.admin-theme-v2 .dashboard-sidebar {
+    background: #FFFFFF;
+    border-right: 1px solid var(--adm-border);
+}
+
+.admin-theme-v2 .sidebar-menu a:hover {
+    background: var(--adm-accent-light);
+    color: var(--adm-accent);
+}
+
+.admin-theme-v2 .sidebar-menu a.active {
+    background: var(--adm-accent-light);
+    color: var(--adm-accent);
+    border-left: 3px solid var(--adm-accent);
+}
+
+/* Card & Widget Redesign */
+.admin-theme-v2 .stat-card,
+.admin-theme-v2 .widget-card {
+    background: var(--adm-card) !important;
+    border: 1px solid var(--adm-border) !important;
+    box-shadow: var(--adm-shadow) !important;
+    border-radius: 12px !important;
+}
+
+.admin-theme-v2 .stat-icon {
+    border-radius: 10px !important;
+    background: var(--adm-accent-light) !important;
+    color: var(--adm-accent) !important;
+}
+
+/* Tables */
+.admin-theme-v2 .data-table,
+.admin-theme-v2 .management-table {
+    border: 1px solid var(--adm-border);
+}
+
+.admin-theme-v2 .data-table thead th {
+    background: #F4F4F5;
+    color: var(--adm-text-muted);
+}
+
+/* Status Badges */
+.admin-theme-v2 .status-badge {
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+}
+
+.admin-theme-v2 .btn-primary {
+    background: var(--adm-accent);
+    border-color: var(--adm-accent);
+}
+
+.admin-theme-v2 .btn-primary:hover {
+    background: #0F766E; /* Teal 700 */
+}

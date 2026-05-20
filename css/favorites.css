@@ -1,0 +1,104 @@
+/* Favorites page: search bar, card layout, Order again button */
+.favorites-toolbar {
+    margin-bottom: var(--space-5, 1.25rem);
+}
+.favorites-search {
+    display: flex;
+    align-items: center;
+    max-width: 360px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light, #e2e8f0);
+    border-radius: var(--radius-md);
+    padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+}
+.favorites-search:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.2);
+}
+.favorites-search i {
+    color: var(--text-muted);
+    margin-right: var(--space-2, 0.5rem);
+    font-size: 0.9rem;
+}
+.favorites-search input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: var(--text-sm, 0.875rem);
+    outline: none;
+}
+
+.favorites-grid.menu-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-5, 1.25rem);
+}
+
+/* Favorite card: heart in corner, single Order again button */
+.favorite-card.menu-item {
+    position: relative;
+    padding-top: var(--space-8, 2rem);
+}
+.btn-fav-card {
+    position: absolute;
+    top: var(--space-3, 0.75rem);
+    right: var(--space-3, 0.75rem);
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--error-color, #dc2626);
+    cursor: pointer;
+    border-radius: var(--radius-full);
+    transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.btn-fav-card:hover {
+    background: var(--error-bg, #fef2f2);
+    color: var(--error-color, #b91c1c);
+    transform: scale(1.08);
+}
+.btn-fav-card:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+.btn-fav-card i {
+    font-size: 1.1rem;
+}
+
+/* Single "Order again" button – no dropdown, clear CTA */
+.favorite-card .menu-item-actions {
+    margin-top: auto;
+    padding-top: var(--space-3, 0.75rem);
+}
+.favorite-card .btn-order-again {
+    display: inline-block;
+    width: 100%;
+    padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+    background: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--text-sm, 0.875rem);
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s, opacity 0.15s;
+    box-sizing: border-box;
+}
+.favorite-card .btn-order-again:hover {
+    background: #e63939;
+    color: #fff;
+    opacity: 0.98;
+}
+.favorite-card .btn-order-again:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.favorites-empty.empty-state {
+    grid-column: 1 / -1;
+}

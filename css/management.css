@@ -1,0 +1,310 @@
+/* Management pages & modals (AMORA-style, Pizza Crust Delight design-system) */
+
+/* Page header */
+.page-header {
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+.page-header h1 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-main, #1a1a1a);
+}
+.page-header p {
+    color: var(--text-muted, #6b7280);
+    font-size: 0.9rem;
+    margin: 0;
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+.back-link:hover { opacity: 0.9; }
+
+/* Toolbar */
+.users-toolbar,
+.approvals-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1.25rem;
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+.search-container {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-container i {
+    position: absolute;
+    left: 12px;
+    color: var(--text-muted);
+}
+.search-container input {
+    width: 100%;
+    padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+}
+.search-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+.toolbar-actions { display: flex; align-items: center; gap: 0.75rem; }
+.users-count { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
+
+/* Status filters */
+.status-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.status-filter {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.status-filter:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.status-filter.active {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.25);
+}
+
+/* Containers */
+.users-container,
+.approvals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+}
+.loading-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+.loading-state i { display: block; margin-bottom: 0.5rem; font-size: 1.5rem; }
+
+/* Cards */
+.user-card,
+.approval-card {
+    background: var(--bg-card);
+    border: none;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem 2rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.user-card:hover,
+.approval-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+.user-card-name,
+.approval-card-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.user-card-role {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.user-card-role.consumer { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.user-card-role.admin { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.user-card-role.superadmin { background: rgba(244, 114, 182, 0.15); color: #f472b6; }
+.user-card-info,
+.approval-card-meta { font-size: 0.85rem; color: var(--text-muted); margin: 0.5rem 0; }
+.user-card-actions,
+.approval-card-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+.btn-sm {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+.btn-view { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+.btn-view:hover { background: #0284c7; color: #fff; transform: translateY(-1px); box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2); }
+.btn-request-delete { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.btn-request-delete:hover { background: var(--primary-color); color: #fff; transform: translateY(-1px); box-shadow: 0 4px 10px rgba(239, 68, 68, 0.2); }
+.approval-status { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+.approval-status.pending { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.approval-status.approved { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.approval-status.rejected { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.pagination button,
+.pagination a {
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: none;
+    color: var(--text-main);
+}
+.pagination button:hover,
+.pagination a:hover { border-color: var(--primary-color); color: var(--primary-color); }
+.pagination .active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.pagination .disabled { opacity: 0.5; pointer-events: none; }
+
+/* Notification modal */
+.notification-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+}
+.notification-modal.show { display: flex; }
+.notification-modal-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 420px;
+    width: 90%;
+    overflow: hidden;
+}
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.notification-icon { font-size: 1.5rem; color: var(--primary-color); }
+.notification-modal.success .notification-icon { color: #059669; }
+.notification-modal.error .notification-icon { color: #dc2626; }
+.notification-close { background: none; border: none; cursor: pointer; padding: 0.25rem; font-size: 1.25rem; color: var(--text-muted); }
+.notification-body { padding: 1rem 1.25rem; }
+.notification-footer { padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); text-align: right; }
+.notification-btn { padding: 0.5rem 1.25rem; border-radius: var(--radius-md); font-weight: 600; cursor: pointer; border: none; background: var(--primary-color); color: #fff; }
+
+/* Delete confirm modal */
+.delete-confirm-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.45);
+    align-items: center;
+    justify-content: center;
+}
+.delete-confirm-modal.show { display: flex; }
+.delete-confirm-modal-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 440px;
+    width: 90%;
+    overflow: hidden;
+}
+.delete-confirm-header {
+    padding: 1.25rem;
+    text-align: center;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+.delete-confirm-icon { font-size: 2rem; color: #dc2626; margin-bottom: 0.5rem; }
+.delete-confirm-body { padding: 1.25rem; }
+.delete-confirm-footer { padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); display: flex; justify-content: flex-end; gap: 0.5rem; }
+.delete-confirm-btn { padding: 0.5rem 1rem; border-radius: var(--radius-md); font-weight: 600; cursor: pointer; border: none; }
+.delete-confirm-cancel { background: var(--bg-body); border: 1px solid var(--border-color); color: var(--text-main); }
+.delete-confirm-delete { background: #dc2626; color: #fff; }
+
+/* Request delete / Review modal */
+.request-delete-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    align-items: center;
+    justify-content: center;
+}
+.request-delete-modal.show { display: flex; }
+.request-delete-modal-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    max-width: 480px;
+    width: 90%;
+    overflow: hidden;
+}
+.request-delete-header {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.request-delete-icon { font-size: 1.5rem; color: var(--primary-color); }
+.request-delete-body { padding: 1.25rem; }
+.request-delete-form-group { margin-top: 0.75rem; }
+.request-delete-label { display: block; margin-bottom: 0.35rem; font-weight: 600; font-size: 0.9rem; }
+.request-delete-textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 80px;
+}
+.request-delete-char-count { font-size: 0.75rem; color: var(--text-muted); display: block; margin-top: 0.25rem; }
+.request-delete-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+.request-delete-btn { padding: 0.5rem 1rem; border-radius: var(--radius-md); font-weight: 600; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 0.35rem; }
+.request-delete-cancel { background: var(--bg-body); border: 1px solid var(--border-color); color: var(--text-main); }
+.request-delete-submit { background: var(--primary-color); color: #fff; }
+.required { color: #dc2626; }
+.optional { color: var(--text-muted); font-weight: normal; }

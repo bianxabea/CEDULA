@@ -1,0 +1,390 @@
+/**
+ * Superadmin Theme: Modern SaaS (Stripe/Linear Inspired)
+ * A minimal, spacious, clean aesthetic prioritizing crisp layouts and subtle depth.
+ */
+
+:root {
+    /* Primary Color System */
+    --sa-primary: #c51332;
+    --sa-primary-hover: #a6102a;
+    --sa-primary-active: #8b0d23;
+    --sa-primary-light: #f8d6dc;
+    --sa-primary-ultralight: #fdebed;
+
+    /* Neutrals & Structure */
+    --sa-bg: #f8fafc;
+    --sa-card: #ffffff;
+    --sa-sidebar-bg: #1f2937;
+    --sa-border: #e2e8f0;
+
+    /* Typography Colors */
+    --sa-text-main: #1e293b;
+    --sa-text-muted: #64748b;
+
+    /* Status Colors */
+    --sa-success: #0f766e;
+    --sa-warning: #d97706;
+    --sa-info: #1e3a8a;
+    --sa-danger: #c51332;
+
+    /* Elevation / Shadows */
+    --sa-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --sa-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    --sa-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Spacing & Radii */
+    --sa-radius-card: 12px;
+    --sa-radius-btn: 6px;
+    --sa-spacing-base: 8px;
+}
+
+/* =========================================
+   Base Overrides
+   ========================================= */
+body.superadmin-v2 {
+    background: var(--sa-bg) !important; /* Force transparent or matching background if parent is colored */
+    background-color: var(--sa-bg) !important;
+    color: var(--sa-text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   Structural Layout (Grid)
+   ========================================= */
+.superadmin-v2 .sa-dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    /*
+       On desktop, Sidebar takes 260px, Content takes the rest.
+       This overrides dashboard.css' flex wrapper if needed.
+    */
+}
+
+/* Sidebar Override */
+.superadmin-v2 .dashboard-sidebar {
+    background-color: var(--sa-sidebar-bg) !important;
+    background: var(--sa-sidebar-bg) !important;
+    border-right: none !important;
+    width: 260px;
+    flex-shrink: 0;
+}
+.superadmin-v2 .profile-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.superadmin-v2 .profile-section h2 {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+.superadmin-v2 .profile-section .text-muted {
+    color: #9ca3af !important;
+}
+
+/* Navbar / Top Header Override */
+.superadmin-v2 .navbar {
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--sa-border) !important;
+    box-shadow: var(--sa-shadow-sm) !important;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+.superadmin-v2 .navbar-inner .logo { filter: none !important; }
+.superadmin-v2 .navbar-inner .navbar-text { color: var(--sa-text-main) !important; font-weight: 600 !important; }
+
+/* Dashboard Main Content Area */
+.superadmin-v2 .dashboard-main {
+    background-color: transparent !important;
+    padding: calc(var(--sa-spacing-base) * 4) !important; /* 32px */
+    flex: 1;
+    min-width: 0; /* Prevent flex overflow */
+}
+
+/* Typography Overrides */
+.superadmin-v2 h1,
+.superadmin-v2 h2,
+.superadmin-v2 h3,
+.superadmin-v2 .page-title {
+    color: var(--sa-text-main) !important;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+.superadmin-v2 p.page-subtitle,
+.superadmin-v2 .muted {
+    color: var(--sa-text-muted) !important;
+}
+
+/* Sidebar Links */
+.superadmin-v2 .sidebar-menu a {
+    color: #cbd5e1 !important;
+    font-weight: 500;
+    border-radius: var(--sa-radius-btn);
+    margin: 4px 16px; /* Spaced nicely inside sidebar */
+    padding: 10px 16px;
+}
+.superadmin-v2 .sidebar-menu a:hover {
+    background: rgba(255,255,255,0.05) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    transform: none !important;
+}
+.superadmin-v2 .sidebar-menu a.active {
+    background: var(--sa-primary) !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+    border-left: none !important;
+    transform: none !important;
+    font-weight: 600;
+}
+
+/* =========================================
+   Cards & Components
+   ========================================= */
+
+/* SaaS Style Stat Card */
+.superadmin-v2 .sa-stat-card {
+    background: var(--sa-card);
+    border: 1px solid var(--sa-border);
+    border-radius: var(--sa-radius-card);
+    box-shadow: var(--sa-shadow-sm);
+    padding: calc(var(--sa-spacing-base) * 3); /* 24px */
+    display: flex;
+    align-items: center;
+    gap: calc(var(--sa-spacing-base) * 2); /* 16px */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.superadmin-v2 .sa-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sa-shadow-hover);
+}
+
+.superadmin-v2 .sa-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: calc(var(--sa-radius-card) - 4px); /* 8px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: var(--sa-primary-ultralight);
+    color: var(--sa-primary);
+}
+
+.superadmin-v2 .sa-stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.superadmin-v2 .sa-stat-info h3 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--sa-text-main);
+    line-height: 1;
+}
+
+.superadmin-v2 .sa-stat-info p {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--sa-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* Layout Grids */
+.superadmin-v2 .sa-dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--sa-spacing-base) * 4); /* 32px */
+    max-width: 100%;
+}
+
+.superadmin-v2 .sa-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: calc(var(--sa-spacing-base) * 3); /* 24px */
+}
+
+/* CSS Grid for Data/Tables */
+.superadmin-v2 .sa-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: calc(var(--sa-spacing-base) * 3); /* 24px */
+}
+
+/* Standard Box Container */
+.superadmin-v2 .sa-box {
+    background: var(--sa-card);
+    border: 1px solid var(--sa-border);
+    border-radius: var(--sa-radius-card);
+    box-shadow: var(--sa-shadow-sm);
+    overflow: hidden; /* For table borders */
+}
+
+.superadmin-v2 .sa-box-header {
+    padding: calc(var(--sa-spacing-base) * 2.5) calc(var(--sa-spacing-base) * 3);
+    border-bottom: 1px solid var(--sa-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.superadmin-v2 .sa-box-header h2 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.superadmin-v2 .sa-box-content {
+    padding: calc(var(--sa-spacing-base) * 3);
+}
+
+.superadmin-v2 .sa-box-content.no-pad {
+    padding: 0;
+}
+
+/* Clean Tables */
+.superadmin-v2 .sa-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.superadmin-v2 .sa-table th {
+    background: var(--sa-bg);
+    color: var(--sa-text-muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--sa-border);
+}
+
+.superadmin-v2 .sa-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--sa-border);
+    color: var(--sa-text-main);
+    font-size: 0.875rem;
+}
+
+.superadmin-v2 .sa-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.superadmin-v2 .sa-table tbody tr:hover {
+    background-color: var(--sa-bg); /* Very subtle hover highlight */
+}
+
+/* Placeholder Chart Container */
+.superadmin-v2 .sa-chart-placeholder {
+    height: 300px;
+    width: 100%;
+    border-radius: calc(var(--sa-radius-card) - 4px);
+    background: linear-gradient(135deg, #c51332, #7c1d6f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Status Badges Overrides */
+.superadmin-v2 .status-badge {
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: none;
+}
+.superadmin-v2 .status-pending { background: #fef3c7; color: var(--sa-warning); }
+.superadmin-v2 .status-ok { background: #d1fae5; color: var(--sa-success); }
+.superadmin-v2 .status-trash { background: var(--sa-primary-ultralight); color: var(--sa-primary); }
+
+/* Buttons */
+.superadmin-v2 .btn-primary {
+    background: var(--sa-primary);
+    color: #ffffff;
+    border: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--sa-radius-btn);
+    box-shadow: var(--sa-shadow-sm);
+    transition: background 0.2s ease;
+    font-size: 0.875rem;
+}
+.superadmin-v2 .btn-primary:hover {
+    background: var(--sa-primary-hover);
+}
+.superadmin-v2 .btn-primary:focus {
+    outline: 2px solid var(--sa-primary-light);
+    outline-offset: 2px;
+}
+
+.superadmin-v2 .btn-secondary {
+    background: #ffffff;
+    color: var(--sa-text-main);
+    border: 1px solid var(--sa-border);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--sa-radius-btn);
+    box-shadow: var(--sa-shadow-sm);
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+}
+.superadmin-v2 .btn-secondary:hover {
+    background: var(--sa-bg);
+    border-color: #cbd5e1;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .superadmin-v2 .sa-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .superadmin-v2 .sa-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .superadmin-v2 .sa-dashboard-container {
+        flex-direction: column;
+    }
+
+    .superadmin-v2 .dashboard-sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        /* Note: the actual collapsible toggle logic is handled in the dashboard.js/HTML,
+           this CSS just ensures it forms a top-nav on mobile if not collapsed */
+    }
+
+    .superadmin-v2 .dashboard-main {
+        padding: calc(var(--sa-spacing-base) * 2) !important; /* 16px */
+    }
+
+    .superadmin-v2 .sa-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Horizontal scroll for exact table wrapping */
+    .superadmin-v2 .sa-box-content.no-pad {
+        overflow-x: auto;
+    }
+}
+

@@ -1,0 +1,143 @@
+/* Payment Methods page */
+.payment-methods-section {
+    margin-bottom: 2rem;
+}
+.pm-section-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: var(--text-primary);
+}
+.pm-section-hint {
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+}
+.pm-list.pm-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 420px;
+}
+.pm-empty {
+    padding: 1rem 0;
+}
+.pm-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light, #e2e8f0);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+.pm-card-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00a86b 0%, #008f5a 100%);
+    color: #fff;
+    border-radius: var(--radius-md);
+    font-size: 1.25rem;
+}
+.pm-card-body {
+    flex: 1;
+    min-width: 0;
+}
+.pm-card-label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.15rem;
+}
+.pm-card-details {
+    font-size: var(--text-sm, 0.875rem);
+    color: var(--text-muted);
+}
+.pm-card-type {
+    font-size: var(--text-xs, 0.75rem);
+    color: var(--text-muted);
+    display: block;
+    margin-top: 0.25rem;
+}
+.pm-badge-default {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+.pm-card-remove {
+    flex-shrink: 0;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.875rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+}
+.pm-card-remove:hover {
+    color: var(--error-color, #dc2626);
+    border-color: var(--error-color);
+}
+
+.add-pm-section {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light, #e2e8f0);
+}
+.pm-form {
+    max-width: 360px;
+}
+.pm-form .form-group {
+    margin-bottom: 1rem;
+}
+.pm-form .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    font-size: var(--text-sm, 0.875rem);
+}
+.pm-form .form-group input[type="text"] {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--border-light, #e2e8f0);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+}
+.pm-form .form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 82, 82, 0.2);
+}
+.pm-form .form-group-checkbox label {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.pm-form .form-group-checkbox input {
+    margin: 0;
+    accent-color: var(--primary-color);
+}
+.btn-pm-save {
+    margin-top: 0.25rem;
+    padding: 0.6rem 1.25rem;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.btn-pm-save:hover {
+    background: #e63939;
+    color: #fff;
+}

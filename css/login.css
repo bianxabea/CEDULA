@@ -1,0 +1,166 @@
+/* Login Page — Clean & Concise */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap');
+
+/* ── Main — Split Screen ────────────────────────── */
+main.page-content {
+    align-items: stretch;
+    background: var(--bg-card);
+    min-height: calc(100vh - 70px); /* fill viewport minus navbar */
+}
+
+.left-side {
+    display: block !important;
+    flex: 1 1 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-side img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right-side {
+    flex: 1 1 50%;
+    padding: 6rem 12% 4rem; /* top padding to clear navbar, bottom to clear footer */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-card);
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2 {
+    font-family: var(--font-heading, 'Outfit'), sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 2rem;
+    text-align: left;
+    letter-spacing: -0.03em;
+}
+
+/* ── Form ─────────────────────────────────────────── */
+.form-row { margin-bottom: 0; }
+.form-group { margin-bottom: 1rem; }
+.password-container { position: relative; }
+.eye-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    width: 20px; height: 20px;
+}
+.eye-icon:hover { color: var(--primary-color); }
+
+.userValidationMess {
+    color: #c51332;
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+    display: none;
+    min-height: 1em;
+    font-weight: 600;
+}
+
+/* ── Forgot link ──────────────────────────────────── */
+.forgot-pw {
+    display: block;
+    text-align: center;
+    margin-top: 1.25rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.forgot-pw:hover { text-decoration: underline; }
+.disabled-link { color: #94a3b8 !important; pointer-events: none; }
+
+/* ── Modals ───────────────────────────────────────── */
+.modal2, .modal-simple-alert, #validationModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(15,23,42,0.5);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+}
+#userNotFoundModal { z-index: 1002; }
+#validationModal { justify-content: center; align-items: center; }
+#validationModal.active { display: flex !important; }
+
+.modal-content, .modal2-content, .modal-simple-alert-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    width: 92%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    animation: popIn 0.25s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+@keyframes popIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+#validationModal .text {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+#timer { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.25rem; }
+#countdown { font-weight: 700; color: var(--primary-color); }
+
+.close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #94a3b8;
+    line-height: 1;
+}
+.close:hover { color: var(--bg-danger); }
+
+
+/* ── Forgot Password Steps ────────────────────────── */
+.forgot-step-title { font-size: 0.88rem; color: #64748b; margin-bottom: 0.6rem; font-weight: 600; }
+.forgot-step { margin-bottom: 0.6rem; text-align: left; width: 100%; }
+.forgot-msg { display: block; margin-top: 0.3rem; font-size: 0.83rem; font-weight: 600; }
+.forgot-email-hint { margin-bottom: 0.4rem; color: #64748b; font-size: 0.85rem; }
+.forgot-email-sent { margin-bottom: 0.3rem; font-size: 0.85rem; color: var(--primary-color); }
+.forgot-resend-hint { display: block; font-size: 0.8rem; color: #94a3b8; margin-top: 0.2rem; }
+.user-details-box { border-radius: 8px !important; }
+.validation-message { font-weight: 600; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .right-side {
+        padding: 4rem 8% 4rem;
+    }
+}
+@media (max-width: 480px) {
+    .login-form { padding: 1.75rem 1.25rem; }
+    .login-form h2 { font-size: 1.8rem; }
+}
